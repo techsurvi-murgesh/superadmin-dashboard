@@ -1,0 +1,43 @@
+.card_title{
+  display:flex;
+  justify-content:space-between;
+}
+
+.discounts_heading{
+  text-align: center;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.page_container {
+  padding: 0 10px 0 10px;
+  .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .page_heading {
+          font-size: 30px;
+      }
+      .page_action_btns {
+          display: flex;
+          gap: 3px;  
+      }  
+  }
+  .action_heading {
+      color: rgb(57, 62, 70);
+      font-weight: 600;
+  }
+}

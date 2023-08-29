@@ -1,0 +1,36 @@
+.store_content{
+    .store_items{
+        padding: 2%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgb(248, 248, 248);
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+
+    .store_info{
+        padding: 2%;
+        border: 1px solid #d6d6d6;
+        margin-bottom: 10px;
+        border-radius: 10px;
+
+        .table-container {
+            background-color: transparent;
+          }
+          
+          .table-row {
+            background-color: transparent;
+          }
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+}
+
+.storeDiscount_main{
+    display: flex;
+}
