@@ -1,0 +1,82 @@
+.page_container {
+    padding: 0 10px 0 10px;
+    width: unset !important;
+    box-shadow: none !important;
+
+    .pp_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 5px;
+
+        .pp_heading {
+            font-size: 30px;
+        }
+        .pp_action_btns {
+            display: flex;
+            gap: 3px;
+        } 
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+          }
+                
+    }
+
+    .thead{
+        background-color: rgb(238, 238, 238);
+        border-radius: 5px;
+        padding: 0;
+        margin-bottom: 5px;
+        th{
+            padding: 8px;
+            border: none;
+            font-weight: 600;
+        }
+    }
+
+    .table_body{
+        .row-gap{
+            margin-bottom: 10px;
+        }
+        tr{
+            background-color: rgb(247, 247, 247, 0.7);
+            border: none;
+            border-radius: 5px;
+        }
+        td{
+            border: none;
+            border-radius: 5px;
+            padding: 8px;
+        }
+    }
+
+ 
+ /* Add these styles to your pricingPlan.scss or a separate CSS file */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+.form_grid_3{
+    display: grid;
+    grid-template-columns: 6fr 6fr 6fr;
+    gap: 50px;
+}
+
+.form_grid_4{
+    display: grid;
+    grid-template-columns: 6fr 6fr 6fr 6fr;
+    gap: 50px;
+}
+
+.form_grid_4_1{
+    display: grid;
+    grid-template-columns: 6fr 6fr 6fr 1fr;
+    gap: 50px;
+}
