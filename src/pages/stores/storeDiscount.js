@@ -15,7 +15,7 @@ function StoreDiscount({ storeId }) {
   }, []);
 
   const handleApplyDiscount = () => {
-    console.log("Discount Code:", discountCode);
+    console.log("Discount Code:", discountCode, storeId);
     const data = {
       store_id: storeId,
       discountCode: discountCode,

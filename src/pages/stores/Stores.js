@@ -82,7 +82,10 @@ function Stores() {
           displayedStores.map((store) => (
             <div key={store.id}>
               <div className="store_items">
-                <span>{store.shop_owner}</span>
+                <span>{store.username}</span>
+                <div>
+                  {store.domain}
+                </div>
                 <div>
                   <Button
                     variant="outlined"

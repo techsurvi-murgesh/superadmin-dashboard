@@ -18,17 +18,22 @@ function AddNewDiscount() {
   const [discount_type, setDiscountType] = useState("");
   const [discount_amount, setDiscountAmount] = useState("");
   const [duration_limit_in_intervals, setInterval] = useState("");
-  const [discount_code, setDiscount_code] = useState("");
+  const [discount_code, setDiscountCode] = useState("");
   const [description, setDescription] = useState("");
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const formData = {
+      discount_code,
       discount_name,
       discount_type,
       discount_amount,
       duration_limit_in_intervals,
+      description,
+      expires_on: '0000-00-00 00:00:00'
     };
+
+    console.log(formData)
 
     createDiscount(formData, (response) => {
       console.log(response);
@@ -85,7 +90,7 @@ function AddNewDiscount() {
           fullWidth
           size="small"
           value={discount_code}
-          onChange={(e) => setDiscount_code(e.target.value)}
+          onChange={(e) => setDiscountCode(e.target.value)}
           margin="normal"
           InputLabelProps={{ style: { fontSize: 12 } }}
           required

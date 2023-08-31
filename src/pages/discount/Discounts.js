@@ -186,6 +186,7 @@ function Discounts() {
         <div className="discounts_container">
           <div className="discounts_header">
             <span>Name</span>
+            <span>Discount Code</span>
             <span>Type</span>
             <span>Amount</span>
             <span>Interval</span>
@@ -197,6 +198,7 @@ function Discounts() {
             <div className="">
               <div key={index} className="discount">
                 <span>{item.discount_name}</span>
+                <span>{item.discount_code}</span>
                 <span>{item.discount_type}</span>
                 <span>{item.discount_amount}</span>
                 <span>{item.duration_limit_in_intervals}</span>
