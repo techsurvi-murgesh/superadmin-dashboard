@@ -18,9 +18,11 @@ export const fetchHistory = async (storeID, callback) => {
   };
 
   export const createStoreDiscount = async (data, callback) => {
-    AxiosPOST('super-admin/discount/add-to-store', data).then((response) => {
-        callback(response)
-    }).catch((err) => {
-        console.log(err)
-    })
-}
+    try {
+      const response = await AxiosPOST('super-admin/discount/apply-to-store', data);
+      callback(response);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  

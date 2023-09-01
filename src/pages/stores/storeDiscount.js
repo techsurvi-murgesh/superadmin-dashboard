@@ -1,34 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Button, MenuItem, styled } from "@mui/material";
+import { Button, styled } from "@mui/material";
 import { createStoreDiscount, fetchStores } from "./storeServices";
 
 
 function StoreDiscount({ storeId }) {
   const [editing, setEditing] = useState(false);
   const [discountCode, setDiscountCode] = useState("");
-  const [stores, setStores] = useState([]); // To store the list of stores
+  const [stores, setStores] = useState([]);
 
   useEffect(() => {
     fetchStores((response) => {
-      setStores(response); // Set the list of stores
+      setStores(response); 
     });
   }, []);
 
   const handleApplyDiscount = () => {
-    console.log("Discount Code:", discountCode, storeId);
+
     const data = {
       store_id: storeId,
       discountCode: discountCode,
     };
 
+    console.log(data)
+
     createStoreDiscount(data, (response) => {
       console.log("API Response:", response);
-      setEditing(false); // Close the editing section after applying
+      setEditing(false);
     });
   };
 
   const handleDeleteDiscount = () => {
-    setDiscountCode(""); // Clear the discount code
+    setDiscountCode(""); 
   };
 
   const CustomButton = styled(Button)`
