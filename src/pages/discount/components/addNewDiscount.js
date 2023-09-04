@@ -37,9 +37,9 @@ function AddNewDiscount() {
 
     createDiscount(formData, (response) => {
       console.log(response);
+      window.location.reload(false);
     });
 
-    window.location.reload(false);
   };
 
   const btnStyle2 = {

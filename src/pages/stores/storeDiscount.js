@@ -25,9 +25,8 @@ function StoreDiscount({ storeId }) {
     createStoreDiscount(data, (response) => {
       console.log("API Response:", response);
       setEditing(false);
+      window.location.reload(false);
     });
-
-    window.location.reload(false);
   };
 
   const handleDeleteDiscount = () => {

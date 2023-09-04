@@ -80,9 +80,8 @@ function AddNewPlan() {
     createPricingPlan(formData, (response) => {
       console.log("Plan created:", response);
       // Perform actions after creating the plan if needed
+      window.location.reload(false);
     });
-
-    window.location.reload(false);
   };
 
   return (
