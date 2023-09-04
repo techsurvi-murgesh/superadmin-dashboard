@@ -15,7 +15,6 @@ function StoreDiscount({ storeId }) {
   }, []);
 
   const handleApplyDiscount = () => {
-
     const data = {
       store_id: storeId,
       discountCode: discountCode,
@@ -27,6 +26,8 @@ function StoreDiscount({ storeId }) {
       console.log("API Response:", response);
       setEditing(false);
     });
+
+    window.location.reload(false);
   };
 
   const handleDeleteDiscount = () => {

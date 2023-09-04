@@ -14,7 +14,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import StoreDiscount from "./storeDiscount";
 
 function Stores() {
@@ -83,13 +83,13 @@ function Stores() {
             <div key={store.id}>
               <div className="store_items">
                 <span>{store.username}</span>
-                <div>
-                  {store.domain}
-                </div>
+                <div>{store.domain}</div>
                 <div>
                   <Button
                     variant="outlined"
-                    onClick={() => handleInformationClick(handleStoreClick(store))}
+                    onClick={() =>
+                      handleInformationClick(handleStoreClick(store))
+                    }
                     style={{ marginRight: "10px" }}
                   >
                     Show Info
@@ -107,19 +107,38 @@ function Stores() {
               {selectedStore && selectedStore.id === store.id && showInfo && (
                 <div className="store_info">
                   <h3> Store Info </h3>
-                  <p><b> Store ID: </b>  {selectedStore.store_id}</p>
-                  <p><b>Shop Email:</b> {selectedStore.email}</p>
-                  <p><b>Shop Domain:</b> {selectedStore.domain}</p>
-                  <p><b>Free Trail Status: </b>{selectedStore.is_freetrial_used == 1 ? "Used" : "Unused"}</p>
+                  <p>
+                    <b> Store ID: </b> {selectedStore.store_id}
+                  </p>
+                  <p>
+                    <b>Shop Email:</b> {selectedStore.email}
+                  </p>
+                  <p>
+                    <b>Shop Domain:</b> {selectedStore.domain}
+                  </p>
+                  <p>
+                    <b>Free Trail Status: </b>
+                    {selectedStore.is_freetrial_used == 1 ? "Used" : "Unused"}
+                  </p>
+                  <p>
+                    <b>Active Discount:</b> {selectedStore.active_discount}
+                  </p>
+                  <StoreDiscount storeId={selectedStore.store_id} />
                 </div>
               )}
               {showDiscounts &&
                 selectedStore &&
                 selectedStore.id === store.id && (
                   <div className="store_info">
-                    <div style={{display:"flex", justifyContent:'space-between', alignItems:'center'}}> 
-                    <h3> Discount History For {selectedStore.store_id} </h3>
-                     <StoreDiscount storeId={selectedStore.store_id}/>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    >
+                      <h3> Discount History For {selectedStore.store_id} </h3>
+                      
                     </div>
 
                     {/* Display other discount history details */}
@@ -149,14 +168,24 @@ function Stores() {
                           {/* Display active discount row */}
                           {selectedStore.active_discount && (
                             <TableRow className="table-row">
-                              <TableCell> 
-                                <Stack direction="row" spacing={1} sx={{justifyContent:'space-between'}}>
-                                {selectedStore.active_discount.discount_name}
-                                  <Chip  icon={<FiberManualRecordIcon />} label="Active" size="small" color="success" variant="outlined" />
+                              <TableCell>
+                                <Stack
+                                  direction="row"
+                                  spacing={1}
+                                  sx={{ justifyContent: "space-between" }}
+                                >
+                                  {selectedStore.active_discount.discount_name}
+                                  <Chip
+                                    icon={<FiberManualRecordIcon />}
+                                    label="Active"
+                                    size="small"
+                                    color="success"
+                                    variant="outlined"
+                                  />
                                 </Stack>
                               </TableCell>
                               <TableCell>
-                              {selectedStore.active_discount.discount_code}
+                                {selectedStore.active_discount.discount_code}
                               </TableCell>
                               <TableCell>
                                 {selectedStore.active_discount.created_at !==
@@ -175,10 +204,10 @@ function Stores() {
                                     )
                                   : "-"}
                               </TableCell>
-
                             </TableRow>
                           )}
-                          {selectedStore.discount_history &&
+                          {Array.isArray(selectedStore.discount_history) &&
+                          selectedStore.discount_history.length > 0 ? (
                             selectedStore.discount_history.map(
                               (discount, index) => (
                                 <TableRow key={index} className="table-row">
@@ -186,9 +215,8 @@ function Stores() {
                                     {discount.discount_name}
                                   </TableCell>
                                   <TableCell>
-                              {discount
-                              .discount_code}
-                              </TableCell>
+                                    {discount.discount_code}
+                                  </TableCell>
                                   <TableCell>
                                     {formatDate(discount.created_at)}
                                   </TableCell>
@@ -197,7 +225,14 @@ function Stores() {
                                   </TableCell>
                                 </TableRow>
                               )
-                            )}
+                            )
+                          ) : (
+                            <TableRow>
+                              <TableCell colSpan={4}>
+                                No discount history available.
+                              </TableCell>
+                            </TableRow>
+                          )}
                         </TableBody>
                       </Table>
                     </TableContainer>
