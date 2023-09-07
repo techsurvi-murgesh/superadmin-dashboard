@@ -208,7 +208,7 @@ function Discounts() {
                 </span>
               </div>
 
-              <div className={` ${item.isExpanded ? "showDiscountInfo" : "hideDiscountInfo"} `} >
+              {/* <div className={` ${item.isExpanded ? "showDiscountInfo" : "hideDiscountInfo"} `} >
                 {!item.discounted_plans ? 
                 (<div className="empty_div">
                   <p>Not applied on any plans !</p>
@@ -237,8 +237,8 @@ function Discounts() {
                     />
                   ))}
                 </div>)}
-              </div>
-                <AddNewStore discountCode={item.discount_code} adddedStores={item.stores} showAddStore={item.isExpanded}/>
+              </div> */}
+                {/* <AddNewStore discountCode={item.discount_code} adddedStores={item.stores} showAddStore={item.isExpanded}/> */}
             </div>
           ))}
         </div>
