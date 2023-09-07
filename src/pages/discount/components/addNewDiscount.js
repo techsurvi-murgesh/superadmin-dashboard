@@ -23,6 +23,11 @@ function AddNewDiscount() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (discount_type === "percentage" && (discount_amount < 0.1 || discount_amount > 0.9)) {
+      alert("Percentage discount amount must be between 0.1 and 0.9");
+      return;
+    }
+
     const formData = {
       discount_code,
       discount_name,
@@ -39,7 +44,6 @@ function AddNewDiscount() {
       console.log(response);
       window.location.reload(false);
     });
-
   };
 
   const btnStyle2 = {
@@ -124,17 +128,18 @@ function AddNewDiscount() {
           required
         />
 
-        <TextField
-          label="Interval"
-          variant="outlined"
-          fullWidth
-          size="small"
-          value={duration_limit_in_intervals}
-          onChange={(e) => setInterval(e.target.value)}
-          margin="normal"
-          InputLabelProps={{ style: { fontSize: 12 } }}
-          required
-        />
+          <Select
+            value={duration_limit_in_intervals}
+            onChange={(e) => setInterval(e.target.value)}
+            size="small"
+            InputLabelProps={{ style: { fontSize: 12 } }}
+            label="Interval"
+            fullWidth
+          >
+            <MenuItem value="3 Months">3 Months</MenuItem>
+            <MenuItem value="6 Months">6 Months</MenuItem>
+            <MenuItem value="12 Months">12 Months</MenuItem>
+          </Select>
 
         <Button
           type="submit"

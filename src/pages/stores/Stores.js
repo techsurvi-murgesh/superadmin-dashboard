@@ -120,9 +120,17 @@ function Stores() {
                     <b>Free Trail Status: </b>
                     {selectedStore.is_freetrial_used == 1 ? "Used" : "Unused"}
                   </p>
-                  <p>
-                    <b>Active Discount:</b> {selectedStore.active_discount}
-                  </p>
+                  {selectedStore.active_discount ? (
+                    <p>
+                      <b>Active Discount:</b>{" "}
+                      {selectedStore.active_discount.discount_code}
+                    </p>
+                  ) : (
+                    <p>
+                      <b>No active code available</b>
+                    </p>
+                  )}
+
                   <StoreDiscount storeId={selectedStore.store_id} />
                 </div>
               )}
@@ -138,7 +146,6 @@ function Stores() {
                       }}
                     >
                       <h3> Discount History For {selectedStore.store_id} </h3>
-                      
                     </div>
 
                     {/* Display other discount history details */}
